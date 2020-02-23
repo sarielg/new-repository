@@ -1,5 +1,4 @@
 #!/bin/bash
 #add fix to exercise5-server2 here
-#ssh-keygen
-#ssh-copy-id -i ~/.ssh/id_rsa.pub server1
-#ssh server1
+ssh-keygen -t rsa -N "" -f mykey
+sudo cat /home/vagrant/mykey.pub | ssh root@server1 "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
